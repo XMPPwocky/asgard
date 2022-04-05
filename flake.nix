@@ -3,6 +3,6 @@
 
   outputs = { self, nixpkgs, flake-utils }:
   {
-    nixosModule = import ./default.nix;
+    nixosModules = import ./nixos/modules/default.nix;
   };
 }
