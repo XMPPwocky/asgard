@@ -1,4 +1,4 @@
 { home-manager, system, pkgs, ... }:
 {
-  mimir = import ./home-mimir.nix;
+  mimir = import ./mimir;
 }

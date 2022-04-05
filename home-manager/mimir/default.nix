@@ -3,8 +3,8 @@
   imports = [
     apps/nushell.nix
 
-    apps/alacritty.nix
     apps/tmux.nix
+    apps/alacritty.nix
 
     apps/neovim.nix
 
@@ -20,6 +20,7 @@
     apps/element-desktop.nix
 
     apps/bitwig.nix
+    apps/renoise.nix
 
     apps/calibre.nix
 
@@ -70,6 +71,7 @@
   ]);
 
   programs.bash.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Mimir";
