@@ -1,6 +1,5 @@
-{ asgard, home-manager, pkgs, system, flake-utils, ... }:
-  let asgardModules = (pkgs.callPackage asgard { inherit flake-utils; });
-in {
+{ jotunnNixosModules, home-manager, pkgs, system, flake-utils, ... }:
+{
   baselineUnstableLaptop = [
     { config = {
       environment.systemPackages = [ pkgs.git ];
@@ -16,27 +15,27 @@ in {
 
     };}
 
-    (import ./machines/mimir-nixos-fw/configuration.nix)
+    (import ../machines/mimir-nixos-fw/configuration.nix)
 
-    asgardModules.nixpkgs-registry
-    asgardModules.enable-flakes
+    jotunnNixosModules.nixpkgs-registry
+    jotunnNixosModules.enable-flakes
 
-    asgardModules.hardening
+    jotunnNixosModules.hardening
 
-    asgardModules.basic-users
+    jotunnNixosModules.basic-users
 
-    asgardModules.power-utils
-    asgardModules.laptop
+    jotunnNixosModules.power-utils
+    jotunnNixosModules.laptop
 
-    asgardModules.gui
-    asgardModules.gnome-keyring
+    jotunnNixosModules.gui
+    jotunnNixosModules.gnome-keyring
 
-    asgardModules.audio
+    jotunnNixosModules.audio
 
     # network config and tailscale
-    asgardModules.systemd-resolved
-    asgardModules.tailscale
+    jotunnNixosModules.systemd-resolved
+    jotunnNixosModules.tailscale
 
-    asgardModules.livestreaming
+    jotunnNixosModules.livestreaming
     ];
   }
