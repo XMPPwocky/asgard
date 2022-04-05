@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 {
   imports = [
+    ../cfg-defaults.nix
+
     apps/nushell.nix
 
     apps/tmux.nix
@@ -30,7 +32,6 @@
 
     apps/weechat.nix
 
-    ./cfg-defaults.nix
   ];
 
   programs.home-manager.enable = true;
