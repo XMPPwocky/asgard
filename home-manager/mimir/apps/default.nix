@@ -7,5 +7,6 @@
 
     ./bitwig.nix
     ./element-desktop.nix
+    ./firefox.nix
   ];
 }

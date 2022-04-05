@@ -11,7 +11,10 @@
       pkgs.git 
     ];
   }
+
   {
     home.packages = lib.mkIf config.yggdrasil.enableMusicProduction [ pkgs.bitwig-studio ];
+
+    programs.firefox.enable = lib.mkIf config.yggdrasil.enableDesktop true;
   };
 }
