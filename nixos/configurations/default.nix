@@ -8,7 +8,7 @@
       home-manager.nixosModules.home-manager
       ] ++ [{ home-manager.users.mimir = homeConfigurations.mimir; }
       {
-        yggdrasil.hardware.formFactor = "laptop";
+        #yggdrasil.hardware.formFactor = "laptop";
 
         home-manager.users.mimir = {
           yggdrasil.enableDesktop = true;
