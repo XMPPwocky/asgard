@@ -3,34 +3,7 @@
   imports = [
     ../cfg-defaults.nix
 
-    apps/nushell.nix
-
-    apps/tmux.nix
-    apps/alacritty.nix
-
-    apps/neovim.nix
-
-    apps/nixops.nix
-
-    apps/resilio.nix
-    apps/duplicacy-web.nix
-
-    apps/chromium.nix
-    apps/firefox.nix
-
-    apps/signal-desktop.nix
-    apps/element-desktop.nix
-
-    apps/bitwig.nix
-
-    apps/calibre.nix
-
-    apps/zotero.nix
-
-    apps/vlc.nix
-
-    apps/weechat.nix
-
+    profiles/base.nix
   ];
 
   programs.home-manager.enable = true;
