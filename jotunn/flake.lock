@@ -15,36 +15,6 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1648297722,
-        "narHash": "sha256-W+qlPsiZd8F3XkzXOzAoR+mpFqzm3ekQkJNa+PIh1BQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "0f8662f1319ad6abf89b3380dd2722369fc51ade",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "jotunn": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "narHash": "sha256-q5ycTZVKOhPRWmLcer0EK7CH+2LSw6Urc0YVSxxlgvs=",
-        "path": "./jotunn",
-        "type": "path"
-      },
-      "original": {
-        "path": "./jotunn",
-        "type": "path"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1649012074,
@@ -62,7 +32,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "jotunn": "jotunn"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
