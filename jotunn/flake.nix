@@ -6,7 +6,9 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       packages = {
-        jack-patches = pkgs.callPackage (./jack_patches) { inherit pkgs; };
+        jack-patch-helpers = pkgs.callPackage (./jack_patch_helpers) { };
       };
-    }));
+    })) // {
+      templates = import ./flake-templates;
+    };
 }
