@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
-  home.packages = [ pkgs.element-desktop ];
+  options.programs.element-desktop.enable = lib.mkEnableOption { default = false; };
+
+  config.home.packages = lib.mkIf config.programs.element-desktop.enable [ pkgs.element-desktop ];
 }

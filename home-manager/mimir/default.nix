@@ -3,6 +3,8 @@
   imports = [
     ../cfg-defaults.nix
 
+    ./apps
+
     profiles/base.nix
   ];
 
@@ -15,6 +17,8 @@
   # workaround for weird issue that seems related to
   # https://github.com/nix-community/home-manager/issues/1118
   fonts.fontconfig.enable = lib.mkForce false;
+  
+  programs.neovim.enable = true;
 
   home.packages = (with pkgs; [
     fd
