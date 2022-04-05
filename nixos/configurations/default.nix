@@ -10,6 +10,7 @@
       {
         home-manager.users.mimir = {
           yggdrasil.useGUIDesktop = true;
+          yggdrasil.enableMusicProduction = true;
           #yggdrasil.hardware.formFactor = "laptop";
           
           programs.alacritty.enable = true;

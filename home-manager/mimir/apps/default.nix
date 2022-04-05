@@ -5,6 +5,7 @@
 
     ./neovim.nix
 
+    ./bitwig.nix
     ./element-desktop.nix
   ];
 }

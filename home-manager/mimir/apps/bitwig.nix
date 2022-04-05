@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  home.packages = [
-  pkgs.bitwig-studio
-  pkgs.yabridge pkgs.yabridgectl
+  config.home.packages = lib.mkIf config.yggdrasil.enableMusicProduction [
+    pkgs.bitwig-studio
   ];
 }
