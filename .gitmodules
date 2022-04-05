@@ -1,6 +1,0 @@
-[submodule "midgard"]
-	path = midgard
-	url = /home/mimir/src/midgard/
-[submodule "bifrost"]
-	path = bifrost
-	url = /home/mimir/src/jotunn/
