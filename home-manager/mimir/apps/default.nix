@@ -1,6 +1,10 @@
 { iib, ... }: {
   imports = [
-    ./element-desktop.nix
+    ./alacritty.nix
+    ./tmux.nix
+
     ./neovim.nix
+
+    ./element-desktop.nix
   ];
 }

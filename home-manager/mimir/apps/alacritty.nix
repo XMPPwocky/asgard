@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.programs.alacritty.settings = {
+  config.programs.alacritty.settings = {
     window = {
       dimensions = { columns = 110; lines = 40; };
     };

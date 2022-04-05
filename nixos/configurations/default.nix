@@ -12,6 +12,7 @@
           yggdrasil.useGUIDesktop = true;
           #yggdrasil.hardware.formFactor = "laptop";
           
+          programs.alacritty.enable = true;
           programs.element-desktop.enable = true;
         };
       }
