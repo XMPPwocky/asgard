@@ -6,7 +6,7 @@
   outputs = { self, flake-utils, jotunn }:
   {
     nixosModules = import ./nixos/modules/default.nix // {
-      homeConfigurations = import ./home-manager-cfg/default.nix;
+      homeConfigurations = import ./home-manager/default.nix;
     };
   } // (flake-utils.lib.eachDefaultSystem (system:
     {

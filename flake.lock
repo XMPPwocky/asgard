@@ -36,7 +36,7 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "narHash": "sha256-m/hRskmFa5FD9QGLx5yFQnAyBy1+mxH7ZUM168VrR7o=",
+        "narHash": "sha256-uA5zikYb8Mg/0kI6URCWkjSvHVidkC3rN16fdZyFLHg=",
         "path": "./jotunn",
         "type": "path"
       },
