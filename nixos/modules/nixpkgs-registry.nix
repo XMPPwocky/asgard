@@ -1,10 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
-  nix.registry.nixpkgs.from = { id = "nixpkgs"; type = "indirect"; };
-  nix.registry.nixpkgs.to = {
+  options.yggdrasil.nixpkgs-branch = lib.mkOption { default = "nixos"; };
+
+  config.nix.registry.nixpkgs.from = { id = "nixpkgs"; type = "indirect"; };
+  config.nix.registry.nixpkgs.to = {
     type = "github";
     owner = "NixOS";
     repo = "nixpkgs";
-    ref = pkgs.config.nixpkgs-branch;
+   ref = config.yggdrasil.nixpkgs-branch;
   };
 }

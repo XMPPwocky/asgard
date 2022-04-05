@@ -2,8 +2,10 @@
 {
   baselineUnstableLaptop = [
     { config = {
+
+      yggdrasil.nixpkgs-branch = "nixos-unstable";
+
       environment.systemPackages = [ pkgs.git ];
-      nixpkgs.config.nixpkgs-branch = "nixos-unstable";
 
       networking.networkmanager.enable = true;
 

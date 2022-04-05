@@ -22,7 +22,6 @@
     apps/element-desktop.nix
 
     apps/bitwig.nix
-    apps/renoise.nix
 
     apps/calibre.nix
 
