@@ -1,15 +1,23 @@
 {
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    jotunn.url = "path:./jotunn";
+  };
 
-  inputs.jotunn.url = "path:./jotunn";
+  outputs = { self, nixpkgs, flake-utils, jotunn, home-manager }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
 
-  outputs = { self, flake-utils, jotunn }:
-  {
-    nixosModules = import ./nixos/modules/default.nix // {
+      nixosModules = import ./nixos/modules/default.nix;
       homeConfigurations = import ./home-manager/default.nix;
-    };
-  } // (flake-utils.lib.eachDefaultSystem (system:
+      nixosConfigurations = pkgs.callPackage ./nixos/configurations/default.nix { inherit nixosModules homeConfigurations home-manager nixpkgs; };
+    in
     {
+      inherit nixosConfigurations;
+    } // (flake-utils.lib.eachDefaultSystem (system:
+      {
         packages = jotunn.packages.${system};
-    }));
+      }));
 }

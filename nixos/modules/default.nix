@@ -1,4 +1,6 @@
 {
+  base-configs = import ./base_configs.nix;
+
   enable-flakes = import ./enable-flakes.nix;
   nixpkgs-registry = import ./nixpkgs-registry.nix;
 
