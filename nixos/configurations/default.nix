@@ -8,10 +8,11 @@
       home-manager.nixosModules.home-manager
       ] ++ [{ home-manager.users.mimir = homeConfigurations.mimir; }
       {
+        yggdrasil.hardware.formFactor = "laptop";
+
         home-manager.users.mimir = {
-          yggdrasil.useGUIDesktop = true;
+          yggdrasil.enableDesktop = true;
           yggdrasil.enableMusicProduction = true;
-          #yggdrasil.hardware.formFactor = "laptop";
           
           programs.alacritty.enable = true;
           programs.element-desktop.enable = true;

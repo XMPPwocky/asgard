@@ -1,13 +1,14 @@
 { pkgs, lib, config, ... }: {
   options = {
-    yggdrasil.useGUIDesktop = lib.mkEnableOption { default = false; };
+    yggdrasil.enableDesktop = lib.mkEnableOption { default = false; };
     yggdrasil.enableMusicProduction = lib.mkEnableOption { default = false; };
   };
 
-  config = lib.recursiveUpdate {
-    home.packages =
-    [
-      pkgs.git # we really want to make sure to keep git around for nixos-rebuild flake stuff
+  config = lib.recursiveUpdate
+  {
+    # we really want to make sure to keep git around for nixos-rebuild flake stuff
+    home.packages = [
+      pkgs.git 
     ];
   }
   {
