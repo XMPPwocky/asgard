@@ -13,11 +13,11 @@
     ];
   }
 
-  {
-    home.packages = lib.mkIf config.yggdrasil.enableMusicProduction [ pkgs.bitwig-studio ];
+  (with lib; {
+    home.packages = recursiveUpdate
+      (mkIf config.yggdrasil.enableMusicProduction [ pkgs.bitwig-studio ])
+      (mkIf config.yggdrasil.enableDesktop [ pkgs.obsidian ]);
 
     programs.firefox.enable = lib.mkIf config.yggdrasil.enableDesktop true;
-
-    programs.steam.enable = lib.mkIf config.yggdrasil.enableGaming true;
-  };
+  });
 }

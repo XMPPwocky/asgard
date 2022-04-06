@@ -19,6 +19,8 @@
 
     (import ../machines/mimir-nixos-fw/configuration.nix)
 
+    jotunnNixosModules.yggdrasil
+
     jotunnNixosModules.nixpkgs-registry
     jotunnNixosModules.enable-flakes
 
