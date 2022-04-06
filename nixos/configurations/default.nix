@@ -13,6 +13,7 @@
         home-manager.users.mimir = {
           yggdrasil.enableDesktop = true;
           yggdrasil.enableMusicProduction = true;
+          yggdrasil.enableGaming = true;
           
           programs.alacritty.enable = true;
           programs.element-desktop.enable = true;
