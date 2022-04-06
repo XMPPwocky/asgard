@@ -9,6 +9,8 @@
       ] ++ [{ home-manager.users.mimir = homeConfigurations.mimir; }
       {
         #yggdrasil.hardware.formFactor = "laptop";
+        
+        yggdrasil.enableGaming = true;
 
         home-manager.users.mimir = {
           yggdrasil.enableDesktop = true;

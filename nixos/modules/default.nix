@@ -28,4 +28,6 @@
   ledger = import ./ledger.nix;
 
   livestreaming = import ./livestreaming.nix;
+
+  yggdrasil = import ./yggdrasil.nix;
 }
