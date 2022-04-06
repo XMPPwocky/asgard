@@ -7,6 +7,7 @@
     in {
       packages = {
         #jack-patch-helpers = pkgs.callPackage (./jack_patch_helpers) { };
+        opensimulator = pkgs.callPackage ./opensimulator { };
       };
     })) // {
       templates = import ./flake-templates;
