@@ -3,6 +3,9 @@
     yggdrasil.enableDesktop = lib.mkEnableOption { default = false; };
     yggdrasil.enableMusicProduction = lib.mkEnableOption { default = false; };
     yggdrasil.enableGaming = lib.mkEnableOption { default = false; };
+
+    # Workstation = development, hacking, "control plane" tasks
+    yggdrasil.enableWorkstation = lib.mkEnableOption { default = false; };
   };
 
   config = lib.recursiveUpdate
@@ -17,6 +20,7 @@
     home.packages = recursiveUpdate
       (mkIf config.yggdrasil.enableMusicProduction [ pkgs.bitwig-studio ])
       (mkIf config.yggdrasil.enableDesktop [ pkgs.obsidian ]);
+      (mkIf config.yggdrasil.enableWorkstation [ pkgs.nixopsUnstable ]);
 
     programs.firefox.enable = lib.mkIf config.yggdrasil.enableDesktop true;
   });
