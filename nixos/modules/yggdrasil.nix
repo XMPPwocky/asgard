@@ -1,7 +1,10 @@
 { config, lib, pkgs, ...}:
 {
   options.yggdrasil = with lib; {
+    enableDesktop = mkEnableOption { };
     enableGaming = mkEnableOption { };
+    enableMusicProduction = mkEnableOption { };
+    enableWorkstation = mkEnableOption { };
   };
 
   config = with lib; {
