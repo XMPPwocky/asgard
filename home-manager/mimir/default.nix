@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ../cfg-defaults.nix
@@ -59,7 +59,20 @@
   };
 
   xsession.enable = true;
+  xsession.windowManager.command = lib.mkForce ''KDEWM=${config.xsession.windowManager.i3.package}/bin/i3 startplasma-x11'';
   xsession.windowManager.i3 = {
     enable = true;
-  }
+    config.terminal = "${pkgs.alacritty}/bin/alacritty";
+    extraConfig = ''
+# Don’t treat Plasma pop-ups as full-sized windows
+for_window [class="plasmashell"] floating enable
+
+# Don’t spawn an empty window for the Plasma Desktop
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+
+# Don’t let notifications and non-interactive pop-up windows steal focus
+no_focus [class="plasmashell" window_type="notification"]
+no_focus [class="plasmashell" window_type="on_screen_display"]
+     '';
+  };
 }
