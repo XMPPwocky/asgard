@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, ... }:
 {
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = lib.mkIf config.yggdrasil.enableGaming true;
 }

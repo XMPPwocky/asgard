@@ -24,6 +24,8 @@
     jotunnNixosModules.nixpkgs-registry
     jotunnNixosModules.enable-flakes
 
+    jotunnNixosModules.bluetooth
+
     jotunnNixosModules.hardening
 
     jotunnNixosModules.basic-users

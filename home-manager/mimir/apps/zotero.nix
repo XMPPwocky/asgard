@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
 {
-  home.packages = [ pkgs.zotero ];
+  options.yggdrasil.programs.zotero.enabled = lib.mkEnableOption { };
+
+  config = {
+    home.packages = lib.mkIf config.yggdrasil.programs.zotero.enabled [ pkgs.zotero ];
+  };
 }

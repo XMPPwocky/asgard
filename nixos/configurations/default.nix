@@ -2,6 +2,7 @@
 {
   mimir-nixos-fw = nixpkgs.lib.nixosSystem (let
     yggdrasilCfg = {
+      enableBluetooth = true;
       enableDesktop = true;
       enableMusicProduction = true;
       enableGaming = true;

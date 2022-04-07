@@ -1,6 +1,7 @@
 { config, lib, pkgs, ...}:
 {
   options.yggdrasil = with lib; {
+    enableBluetooth = mkEnableOption { };
     enableDesktop = mkEnableOption { };
     enableGaming = mkEnableOption { };
     enableMusicProduction = mkEnableOption { };
