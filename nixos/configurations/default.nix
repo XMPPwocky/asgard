@@ -18,6 +18,7 @@
       { home-manager.users.mimir = homeConfigurations.mimir; }
       { home-manager.users.mimir.options.yggdrasil = lib.mkOption { }; }      
       {
+        networking.hostName = "mimir-nixos-fw";
         yggdrasil = yggdrasilCfg;
         home-manager.users.mimir = {
           yggdrasil = yggdrasilCfg;
