@@ -80,4 +80,5 @@ no_focus [class="plasmashell" window_type="on_screen_display"]
   };
   xresources.properties."Xft.dpi" = 150;
   services.picom.enable = true;
+  services.dunst.enable = true;
 }
