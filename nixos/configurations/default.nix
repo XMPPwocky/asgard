@@ -11,21 +11,19 @@
   in {
     inherit system;
 
-    modules = base-configs.baselineUnstableLaptop ++
-      [
-      home-manager.nixosModules.home-manager
-      ] ++ [
-      { home-manager.users.mimir = homeConfigurations.mimir; }
-      { home-manager.users.mimir.options.yggdrasil = lib.mkOption { }; }      
+    modules = base-configs.baselineUnstableLaptop ++ [
+        home-manager.nixosModules.home-manager
       {
         networking.hostName = "mimir-nixos-fw";
+
         yggdrasil = yggdrasilCfg;
         home-manager.users.mimir = {
-          yggdrasil = yggdrasilCfg;
+          yggdrasil-home = { systemConfig = yggdrasilCfg; };
           programs.alacritty.enable = true;
           programs.element-desktop.enable = true;
         };
       }
+      { home-manager.users.mimir = homeConfigurations.mimir; }
       ];
   });
 }

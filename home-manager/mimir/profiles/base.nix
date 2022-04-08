@@ -9,10 +9,10 @@
 
   (with lib; {
     home.packages = recursiveUpdate (recursiveUpdate
-      (mkIf config.yggdrasil.enableMusicProduction [ pkgs.bitwig-studio ])
-      (mkIf config.yggdrasil.enableDesktop [ pkgs.obsidian ]))
-      (mkIf config.yggdrasil.enableWorkstation [ pkgs.nixopsUnstable ]);
+      (mkIf config.yggdrasil-home.systemConfig.enableMusicProduction [ pkgs.bitwig-studio ])
+      (mkIf config.yggdrasil-home.systemConfig.enableDesktop [ pkgs.obsidian ]))
+      (mkIf config.yggdrasil-home.systemConfig.enableWorkstation [ pkgs.nixopsUnstable ]);
 
-    programs.firefox.enable = lib.mkIf config.yggdrasil.enableDesktop true;
+    programs.firefox.enable = lib.mkIf config.yggdrasil-home.systemConfig.enableDesktop true;
   });
 }

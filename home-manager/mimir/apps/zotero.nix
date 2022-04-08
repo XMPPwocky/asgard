@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 lib.mkIf
-  config.yggdrasil.enableDesktop
+  config.yggdrasil-home.systemConfig.enableDesktop
 {
   home.packages = [ pkgs.zotero ];
 }
