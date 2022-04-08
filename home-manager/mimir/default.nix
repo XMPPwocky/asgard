@@ -59,10 +59,13 @@
   };
 
   xsession.enable = true;
-  xsession.windowManager.command = lib.mkForce ''KDEWM=${config.xsession.windowManager.i3.package}/bin/i3 startplasma-x11'';
+  #xsession.windowManager.command = lib.mkForce ''KDEWM=${config.xsession.windowManager.i3.package}/bin/i3 startplasma-x11'#';
   xsession.windowManager.i3 = {
     enable = true;
-    config.terminal = "${pkgs.alacritty}/bin/alacritty";
+    config = {
+      terminal = "${pkgs.alacritty}/bin/alacritty";
+      modifier = "Mod4";
+    };
     extraConfig = ''
 # Don’t treat Plasma pop-ups as full-sized windows
 for_window [class="plasmashell"] floating enable
@@ -75,4 +78,5 @@ no_focus [class="plasmashell" window_type="notification"]
 no_focus [class="plasmashell" window_type="on_screen_display"]
      '';
   };
+  xresources.properties."Xft.dpi" = 180;
 }
