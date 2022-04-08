@@ -78,5 +78,6 @@ no_focus [class="plasmashell" window_type="notification"]
 no_focus [class="plasmashell" window_type="on_screen_display"]
      '';
   };
-  xresources.properties."Xft.dpi" = 180;
+  xresources.properties."Xft.dpi" = 150;
+  services.picom.enable = true;
 }
