@@ -1,5 +1,4 @@
-{ pkgs, lib, config, ... }: {
-  config = lib.recursiveUpdate
+{ pkgs, lib, config, ... }: lib.mkMerge [
   {
     nixpkgs.config.allowUnfree = true;
 
@@ -9,11 +8,17 @@
     ];
   }
 
-  (with lib; {
-    home.packages = (recursiveUpdate
-      (mkIf config.yggdrasil-home.systemConfig.enableMusicProduction [ pkgs.bitwig-studio ])
-      (mkIf config.yggdrasil-home.systemConfig.enableDesktop [ pkgs.obsidian ]));
+  (with lib; mkIf config.yggdrasil-home.systemConfig.enableDesktop {
+    programs.firefox.enable = true;
+    home.packages = with pkgs; [
+      obsidian
+    ];
 
-    programs.firefox.enable = lib.mkIf config.yggdrasil-home.systemConfig.enableDesktop true;
-  });
-}
+    services.dunst.enable = true;
+    services.network-manager-applet.enable = true;
+  })
+
+  (with lib; {
+    home.packages = mkIf config.yggdrasil-home.systemConfig.enableMusicProduction [ pkgs.bitwig-studio ];
+  })
+]

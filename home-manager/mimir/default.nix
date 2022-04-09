@@ -74,6 +74,10 @@
       config = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
         modifier = "Mod4";
+
+        bars = [ {
+          fonts.size = 10.0;
+        }];
       };
       extraConfig = ''
   # Don’t treat Plasma pop-ups as full-sized windows
