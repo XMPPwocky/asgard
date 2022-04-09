@@ -1,5 +1,5 @@
-{ ... }:
+{pkgs, ...}@inputs:
 {
-  mimir-nixos-fw = import ./mimir-nixos-fw.nix;
-  test-vm = import ./test-vm.nix;
+  mimir-nixos-fw = pkgs.callPackage ./mimir-nixos-fw.nix inputs;
+  test-vm = pkgs.callPackage ./test-vm.nix inputs;
 }
