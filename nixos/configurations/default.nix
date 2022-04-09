@@ -1,5 +1,5 @@
-inputs@{pkgs, nixpkgs, ...}:
+inputs:
 {
-  mimir-nixos-fw = pkgs.callPackage ./mimir-nixos-fw.nix inputs;
-  test-vm = pkgs.callPackage ./test-vm.nix { inherit nixpkgs; system = "x86_64-linux"; };
+  mimir-nixos-fw = import ./mimir-nixos-fw.nix ({ system = "x86_64-linux"; } // inputs);
+  test-vm = import ./test-vm.nix ({ system = "x86_64-linux"; } // inputs);
 }

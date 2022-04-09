@@ -1,4 +1,4 @@
-{ nixpkgs, lib, system, home-manager, homeConfigurations, base-configs, ... }:
+{ nixpkgs, system, home-manager, homeConfigurations, base-configs, ... }:
   nixpkgs.lib.nixosSystem (let
     yggdrasilCfg = {
       enableBluetooth = true;
@@ -8,6 +8,7 @@
       enableWorkstation = true;
     };
     pkgs = nixpkgs.legacyPackages.${system};
+    lib = pkgs.lib;
   in {
     inherit system;
 

@@ -18,7 +18,8 @@
 
       homeConfigurationsBuilt = pkgs.callPackage ./home-manager/default.nix { };
 
-      nixosConfigurations = pkgs.callPackage (import ./nixos/configurations) { inherit nixosModules home-manager nixpkgs base-configs flake-utils; homeConfigurations = homeConfigurationsBuilt; };
+      configArgs = { inherit nixosModules home-manager nixpkgs base-configs flake-utils; homeConfigurations = homeConfigurationsBuilt; };
+      nixosConfigurations = (import ./nixos/configurations) configArgs;
     in
     {
       inherit nixosModules nixosConfigurations;
