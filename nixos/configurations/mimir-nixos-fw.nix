@@ -22,7 +22,6 @@
 
           networking.hostName = "mimir-nixos-fw";
 
-          users.users.mimir.extraGroups = [ "vboxusers" ];
           virtualisation.virtualbox.host.enable = true;
 
           users.mutableUsers = true;

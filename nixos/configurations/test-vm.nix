@@ -31,4 +31,3 @@ nixpkgs.lib.nixosSystem
   }
   ];
 }
-
