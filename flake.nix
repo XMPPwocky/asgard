@@ -21,7 +21,10 @@
       nixosConfigurations = pkgs.callPackage ./nixos/configurations/default.nix { inherit nixosModules home-manager nixpkgs base-configs flake-utils; homeConfigurations = homeConfigurationsBuilt; };
     in
     {
-      inherit nixosModules nixosConfigurations;
+      inherit nixosModules;
+
+      nixosConfigurations.mimir-nixos-fw = nixosConfigurations.mimir-nixos-fw;
+      nixosConfigurations.test-vm = nixosConfigurations.test-vm;
     } // (flake-utils.lib.eachDefaultSystem (system:
       {
         packages = jotunn.packages.${system};
