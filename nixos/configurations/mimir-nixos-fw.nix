@@ -26,8 +26,6 @@
 
           networking.hostName = "mimir-nixos-fw";
 
-          virtualisation.virtualbox.host.enable = true;
-
           users.mutableUsers = true;
           users.users.mimir = {
             isNormalUser = true;

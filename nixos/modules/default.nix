@@ -18,9 +18,6 @@
 
   power-utils = import ./power-utils.nix;
 
-  ps5-controller-udev = import ./ps5-controller-udev.nix;
-  steam = import ./steam.nix;
-
   bluetooth = import ./bluetooth.nix;
 
   gnome-keyring = import ./gnome-keyring.nix;
