@@ -18,6 +18,8 @@
         ];
 
         config = {
+          boot.kernelPackages = pkgs.linuxPackages_latest;
+
           yggdrasil = yggdrasilCfg;
 
           networking.hostName = "mimir-nixos-fw";
