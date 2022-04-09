@@ -20,25 +20,13 @@ let mySshKeys = [
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
   networking.interfaces.enp2s0.useDHCP = true;
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
-
-  users.users.root.openssh.authorizedKeys.keys = mySshKeys;
 
   users.users.mimir = {
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     openssh.authorizedKeys.keys = mySshKeys;
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -51,12 +39,7 @@ let mySshKeys = [
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  services.tailscale = { enable = true; };
 
   # mount share from unraid host-
   fileSystems."/mnt/unraid/nixos_vm" = {
@@ -64,6 +47,7 @@ let mySshKeys = [
     device = "shares_unraid";
     options = [ "trans=virtio" ];
   };
+        
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
