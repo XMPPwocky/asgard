@@ -87,7 +87,7 @@
   no_focus [class="plasmashell" window_type="on_screen_display"]
        '';
     };
-    xresources.properties."Xft.dpi" = 150;
+    xresources.properties."Xft.dpi" = 160;
     services.picom.enable = true;
   };
 }
