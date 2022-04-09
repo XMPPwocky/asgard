@@ -2,6 +2,7 @@
 {
   baselineUnstableLaptop = [
     { config = {
+      nixpkgs.config.allowUnfree = true;
 
       yggdrasil.nixpkgs-branch = "nixos-unstable";
 
@@ -16,8 +17,6 @@
       home-manager.useUserPackages = true;
 
     };}
-
-    (import ../machines/mimir-nixos-fw/configuration.nix)
 
     jotunnNixosModules.yggdrasil
 

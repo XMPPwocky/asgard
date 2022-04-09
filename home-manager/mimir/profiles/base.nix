@@ -1,6 +1,8 @@
 { pkgs, lib, config, ... }: {
   config = lib.recursiveUpdate
   {
+    nixpkgs.config.allowUnfree = true;
+
     # we really want to make sure to keep git around for nixos-rebuild flake stuff
     home.packages = [
       pkgs.git 

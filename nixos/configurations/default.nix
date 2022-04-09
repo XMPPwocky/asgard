@@ -14,16 +14,23 @@
     modules = base-configs.baselineUnstableLaptop ++ [
         home-manager.nixosModules.home-manager
       {
-        networking.hostName = "mimir-nixos-fw";
+        imports = [
+        ../machines/mimir-nixos-fw/configuration.nix
+        ];
 
-        yggdrasil = yggdrasilCfg;
-        home-manager.users.mimir = {
-          yggdrasil-home = { systemConfig = yggdrasilCfg; };
-          programs.alacritty.enable = true;
-          programs.element-desktop.enable = true;
+        config = {
+          networking.hostName = "mimir-nixos-fw";
+
+          yggdrasil = yggdrasilCfg;
+          home-manager.users.mimir = lib.mkMerge
+          [  homeConfigurations.mimir
+          {
+            config.yggdrasil-home = { systemConfig = yggdrasilCfg; };
+            config.programs.alacritty.enable = true;
+            config.programs.element-desktop.enable = true;
+          }];
         };
       }
-      { home-manager.users.mimir = homeConfigurations.mimir; }
       ];
   });
 }
