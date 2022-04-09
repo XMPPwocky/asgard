@@ -14,7 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/93fe59eb-c77f-41e4-9a6d-9c6adfdcc9cb"; }
+    ];
+
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }
-
