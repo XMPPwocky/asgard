@@ -8,12 +8,12 @@
     enableWorkstation = mkEnableOption { };
   };
 
-  config = with lib; (recursiveUpdate
-    {
-      programs.steam.enable = lib.mkIf config.yggdrasil.enableGaming true;
-    }
+  config = with lib; mkMerge [
+    (mkIf config.yggdrasil.enableGaming {
+      programs.steam.enable = true;
+    })
 
-    (lib.mkIf config.yggdrasil.enableDesktop {
+    (mkIf config.yggdrasil.enableDesktop {
       services.flatpak.enable = true;
       services.pcscd.enable = true;
       services.yubikey-agent.enable = true;
@@ -24,5 +24,5 @@
 
       security.allowUserNamespaces = true;
       boot.kernel.sysctl."kernel.unprivileged_userns_clone" = 1;
-    }));
+    })];
 }
